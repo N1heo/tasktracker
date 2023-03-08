@@ -16,13 +16,13 @@ public class TaskController {
     @Autowired
     TaskRepository taskRepository;
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/tasks")
     public String main(Model model) {
         model.addAttribute("tasks", taskRepository.findAll());
         return "table";
     }
 
-    @PostMapping("/")
+    @PostMapping("/tasks")
     public String taskSubmit(@RequestParam String description,
                              @RequestParam String issuer,
                              @RequestParam String executor,
